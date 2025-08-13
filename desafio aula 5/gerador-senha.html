@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gerador de Senha com Maiúsculas e Minúsculas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #senha {
+            font-size: 24px;
+            margin: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 300px;
+            display: inline-block;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gerador de Senha Aleatória</h1>
+    <div id="senha">Clique no botão para gerar</div>
+    <button onclick="gerarSenha()">Gerar Senha</button>
+
+    <script>
+        function gerarSenha() {
+            const tamanho = 10; // Tamanho da senha
+            const maiusculas = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            const minusculas = 'abcdefghijklmnopqrstuvwxyz';
+            
+            // Combina letras maiúsculas e minúsculas
+            const letras = maiusculas + minusculas;
+            
+            let senha = '';
+            for (let i = 0; i < tamanho; i++) {
+                // Escolhe aleatoriamente entre maiúsculas e minúsculas
+                const randomIndex = Math.floor(Math.random() * letras.length);
+                senha += letras[randomIndex];
+            }
+            
+            document.getElementById('senha').textContent = senha;
+        }
+    </script>
+</body>
+</html>
